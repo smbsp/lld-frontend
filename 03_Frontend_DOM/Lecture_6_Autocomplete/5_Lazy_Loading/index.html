@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lazy Loading with Intersection Observer</title>
+    <style>
+        .image-container {
+            margin-bottom: 20px;
+            height: 200px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="placeholder.png" data-src="https://picsum.photos/id/10/2500/1667" alt="Place Image">
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" data-src="https://picsum.photos/id/20/2500/1667" alt="Random Image">
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" data-src="https://picsum.photos/id/30/2500/1667" alt="Random Image">
+    </div>
+    <div class="image-container">
+        <img src="placeholder.png" data-src="https://picsum.photos/id/40/2500/1667" alt="Random Image">
+    </div>
+    <!-- Add more images as needed -->
+    <script src="lazyload.js"></script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- algorithm to efficiently manipulate your UI -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+
+    <!-- React DOM  -> uses react to update the DOM-->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- transpiler -> JSX -> into javascript -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <style>
+        .counter {
+            margin-top: 2rem;
+            border-bottom: 2px solid gray;
+            padding-bottom: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        // Child component
+        function ChildComponent(props) {
+            // Using the event handler passed as a prop
+            return (
+                <div>
+                    <input type="text" onChange={props.onInputChange} />
+                    <h2>Message: {props.message}</h2>
+                </div>
+            );
+        }
+
+        // Parent component
+        function App() {
+            const [message, setMessage] = React.useState(''); // Using React useState hook to manage message state
+
+            // Event handler defined in the parent component
+            const handleInputChange = (event) => {
+                const inputValue = event.target.value;
+                setMessage(inputValue);
+                console.log("Input value:", inputValue);
+            };
+
+            // Passing the event handler as a prop to the ChildComponent
+            return <ChildComponent onInputChange={handleInputChange} message={message} />;
+        }
+
+        ReactDOM.render(<App />, document.getElementById("root"));
+    </script>
+
+</body>
+
+</html>

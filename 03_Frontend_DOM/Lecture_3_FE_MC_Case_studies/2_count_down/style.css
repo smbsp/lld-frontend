@@ -1,0 +1,13 @@
+.timer {
+    display: flex;
+    justify-content: start;
+    gap: 90px;
+}
+
+.pause {
+    display: none;
+}
+
+.continue {
+    display: none;
+}

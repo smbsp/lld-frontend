@@ -1,0 +1,51 @@
+<!-- Use <label> Elements: Associate each input field with a corresponding <label> element. This provides screen readers with the necessary context to describe each input.
+Add for Attribute to Labels: The for attribute of the <label> should match the id of the corresponding input, creating a programmatic association between the label and the input field.
+Provide a name Attribute for the <select> Element: The <select> element should have a meaningful name attribute.
+Provide a name Attribute for the <textarea> Element: The <textarea> element should have a meaningful name attribute.
+Use a <button> Element for Submission: Replace the <a> tag with a <button> element for the submit action. The <button> element is more semantically correct for form submission. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <div class="entry">
+            <label for="name" class="entry-text">Name</label>
+            <input type="text" id="name" name="Name" placeholder="Your Name" required>
+        </div>
+        <div class="entry">
+            <label for="email" class="entry-text">Email</label>
+            <input type="email" id="email" name="Email" placeholder="Your Email">
+        </div>
+        <div class="entry">
+            <label for="source" class="entry-text">How did you find us</label>
+            <select id="source" name="Source">
+                <option value="friends">Friends</option>
+                <option value="search">Search</option>
+                <option value="advertisement">Advertisement</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="entry">
+            <label for="message" class="entry-text">Drop us a line</label>
+            <textarea id="message" name="Message" placeholder="Your Message"></textarea>
+        </div>
+        <div class="entry">
+            <input type="checkbox" id="agree" name="Agree" class="checkbox">
+            <label for="agree" class="checkbox-conditions">I have read and agree with all the Privacy Policy and Terms
+                Conditions</label>
+        </div>
+        <div class="btn-parent">
+            <button type="submit" class="btn btn-full form-button">SEND MESSAGE</button>
+        </div>
+    </form>
+</body>
+
+</html>

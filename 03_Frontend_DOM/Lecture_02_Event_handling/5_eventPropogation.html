@@ -1,0 +1,55 @@
+<!-- Explanation
+Capturing Phase: The event starts at the root of the document and travels down to the child button. Along the way, it 
+triggers the capturing phase listeners on the grandparent and parent elements in that order.
+
+Target Phase: The event reaches the child button, and the listener directly on the child is triggered.
+
+Bubbling Phase: The event then bubbles up from the child button to the root of the document. Along the way, it triggers the 
+bubbling phase listeners on the parent and grandparent elements in that order. -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <div id="grandparent">
+            <div id="parent">
+            <button id="child">Click Me!</button>
+            </div>
+        </div>           
+    </body>
+
+    <script>
+        const grandparent = document.getElementById('grandparent');
+        const parent = document.getElementById('parent');
+        const child = document.getElementById('child');
+
+        // Capturing phase listeners
+        grandparent.addEventListener('click', () => {
+            console.log('Grandparent clicked (capturing phase)');
+        }, true); // true indicates capturing phase
+
+        parent.addEventListener('click', () => {
+            console.log('Parent clicked (capturing phase)');
+        }, true);
+
+        // Bubbling phase listeners
+        grandparent.addEventListener('click', () => {
+            console.log('Grandparent clicked (bubbling phase)');
+        });
+
+        parent.addEventListener('click', () => {
+            console.log('Parent clicked (bubbling phase)');
+        });
+
+        child.addEventListener('click', () => {
+            console.log('Child clicked');
+            // event.stopPropagation();
+        });
+    </script>
+</html>
